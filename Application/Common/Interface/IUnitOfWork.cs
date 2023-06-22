@@ -1,0 +1,22 @@
+﻿using Domain.Master;
+using Domain.Product;
+
+namespace Application.Common.Interface
+{
+    public interface IUnitOfWork
+    {
+        IRepository<AppSetting> AppSettingRepository { get; }
+
+        IRepository<Category> CategoryRepository { get; }
+
+        Task<int> SaveAsync();
+
+        int Save();
+
+        void BeginTransaction();
+
+        void CommitTransaction();
+
+        void RollbackTransaction();
+    }
+}
